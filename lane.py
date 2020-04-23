@@ -2,9 +2,7 @@ import cv2
 import numpy as np 
 import matplotlib.pyplot as plt 
 def canny_edge_detector(image): 
-    # Convert the image color to grayscale 
     gray_image = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)  
-    # Reduce noise from the image 
     blur = cv2.GaussianBlur(gray_image, (5, 5), 0)  
     canny = cv2.Canny(blur, 50, 150) 
     return canny 
@@ -31,7 +29,6 @@ def average_slope_intercept(image, lines):
     right_fit = [] 
     for line in lines: 
         x1, y1, x2, y2 = line.reshape(4)        
-        # It will fit the polynomial and the intercept and slope 
         parameters = np.polyfit((x1, x2), (y1, y2), 1)  
         slope = parameters[0] 
         intercept = parameters[1] 
@@ -62,13 +59,7 @@ while(cap.isOpened()):
     line_image = display_lines(frame, averaged_lines) 
     combo_image = cv2.addWeighted(frame, 0.8, line_image, 1, 1)  
     cv2.imshow("results", combo_image) 
-    # When the below two will be true and will press the 'q' on 
-    # our keyboard, we will break out from the loop 
-    # # wait 0 will wait for infinitely between each frames.  
-    # 1ms will wait for the specified time only between each frames 
-    if cv2.waitKey(1) & 0xFF == ord('q'):       
+    if cv2.waitKey(1) & 0xFF == ord('x'):       
         break
-# close the video file 
 cap.release()  
-# destroy all the windows that is currently on 
 cv2.destroyAllWindows()  
