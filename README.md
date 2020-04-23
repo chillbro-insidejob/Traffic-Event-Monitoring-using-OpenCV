@@ -73,8 +73,4 @@ RoadTraffic, haar training, Event detection, Surveillance, Monitoring, Python3, 
   
   # DEMO
   
-  ![Td.py](https://media.giphy.com/media/ghOGlKPeX8YHDnHX8O/giphy.gif)
-  
-  ![Traffic.py](https://media2.giphy.com/media/UtKeySjj66MUt3cdRk/giphy.gif)
- 
-  ![lane.py](https://media.giphy.com/media/WTuVOlUqct3ayDADKN/giphy.gif)
+  ![Traffic.py](https://media2.giphy.com/media/UtKeySjj66MUt3cdRk/giphy.gif)     ![lane.py](https://media.giphy.com/media/WTuVOlUqct3ayDADKN/giphy.gif)
