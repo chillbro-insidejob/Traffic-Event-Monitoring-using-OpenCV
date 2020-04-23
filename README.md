@@ -6,7 +6,7 @@ The Project Detects and Keeps the record of Vehicles such as Time,Area,Vehicle_I
 
 I used Visual Studio Code to Execute the code and I would recommend using Linux OS But for the Windows Users
 
-they need to Change the path of the Directories in the Code.
+they need to change the path of the directories.
 
 # Prerequisites
 
@@ -16,8 +16,11 @@ they need to Change the path of the Directories in the Code.
 - numpy
 - Time
 - scikit-multiflow
+
 # Installing
+
 Linux User:
+
 To install Python from the terminal
 ```
 apt-get install python3
@@ -41,6 +44,7 @@ pip3 install opencv-python
 
 ```
 **Install other packages through pip to avoid error**
+
 Example:
 ```
 Traceback (most recent call last):
@@ -67,3 +71,10 @@ RoadTraffic, haar training, Event detection, Surveillance, Monitoring, Python3, 
   
   https://www.iosrjournals.org/iosr-jce/papers/Vol16-issue3/Version-2/F016322532.pdf
   
+  # DEMO
+  
+  ![Td.py](https://media.giphy.com/media/ghOGlKPeX8YHDnHX8O/giphy.gif)
+  
+  ![Traffic.py](https://media2.giphy.com/media/UtKeySjj66MUt3cdRk/giphy.gif)
+ 
+  ![lane.py](https://media.giphy.com/media/WTuVOlUqct3ayDADKN/giphy.gif)
