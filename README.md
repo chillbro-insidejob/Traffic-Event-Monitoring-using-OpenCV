@@ -17,7 +17,7 @@ they need to change the path of the directories.
 - open-cv
 - numpy
 - Time
-- scikit-multiflow
+- scikit-image
 
 # Installing
 
