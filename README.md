@@ -62,17 +62,7 @@ RoadTraffic, haar training, Event detection, Surveillance, Monitoring, Python3, 
 # License
 
   This project is licensed under the MIT License - see the LICENSE.md file for details.
-  
-# Acknowledgment
 
-  Traffic Event Detection using Computer Vision
-  
-  Ramesh Navi,(Department of C.S.E,MSEC Bangalore, India)
-  
-  Aruna M. G. (Departmentof C.S.E,MSEC Bangalore, India)
-  
-  https://www.iosrjournals.org/iosr-jce/papers/Vol16-issue3/Version-2/F016322532.pdf
-  
   # DEMO
   
   ![Traffic.py](https://media2.giphy.com/media/UtKeySjj66MUt3cdRk/giphy.gif)     ![lane.py](https://media.giphy.com/media/WTuVOlUqct3ayDADKN/giphy.gif)
