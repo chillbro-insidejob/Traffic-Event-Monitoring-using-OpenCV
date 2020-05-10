@@ -2,11 +2,9 @@ import cv2
 import numpy as np
 import Vehicle
 import time
-#cv2.namedWindow('image', cv2.WINDOW_NORMAL)
-#cv2.resizeWindow('image', 100,100)
 cnt_up = 0
 cnt_down = 0
-cap = cv2.VideoCapture('/root/New Folder/cars.mp4')
+cap = cv2.VideoCapture('/home/vineet/New Folder/cars.mp4')
 for i in range(19):
     print ("i", cap.get(i))
 w = cap.get(3)
@@ -19,7 +17,7 @@ line_up = int(2*(h/5))
 line_down = int(3*(h/5))
 up_limit = int(1*(h/5))
 down_limit = int(4*(h/5))
-print ("Red line y:", str(line_down))
+print ("Red line x:", str(line_down))
 print ("Blue line y:", str(line_up))
 line_down_color = (255,0,0)
 line_up_color = (0,0,255)
@@ -71,13 +69,13 @@ while(cap.isOpened()):
     except:
         #If there is no more frames to show...
         print("EOF")
-        print ("UP:", cnt_up)
-        print ("DOWN:", cnt_down)
+        print ("Up:", cnt_up)
+        print ("Down:", cnt_down)
         break
     #FIND CONTOUR
     contours0, hierarchy = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
     for cnt in contours0:
-        cv2.drawContours(frame, cnt, -1, (0,255,0), 3, 8)
+        cv2.drawContours(frame, cnt, -1, (0,255,0), 2, 8)
         area = cv2.contourArea(cnt)
         #print area," ",areaTH
         if area > areaTH and area < 20000:
@@ -95,13 +93,13 @@ while(cap.isOpened()):
                     i.updateCoords(cx,cy)   # Update the coordinates in the object and reset age
                     if i.going_UP(line_down, line_up) == True:
                         cnt_up += 1
-                        print ("ID:", i.getId(), 'crossed going up at', time.strftime("%c"))
+                        print ("ID:", i.getId(), 'going up on', time.strftime("%c"))
                     elif i.going_DOWN(line_down, line_up) == True:
                         roi = frame[y:y+h, x:x+w]
-                        cv2.imshow('Region of Interest', roi)
-                        print ("Area equal to ::::", area)
+                        cv2.imshow('Region of Interest/Contour', roi)
+                        print ("Area = ", area)
                         cnt_down += 1
-                        print ("ID:", i.getId(), 'crossed going down at', time.strftime("%c"))
+                        print ("ID:", i.getId(), 'going down on', time.strftime("%c"))
                     break
                 if i.getState() == '1':
                     if i.getDir() == 'down' and i.getY() > down_limit:
@@ -120,7 +118,7 @@ while(cap.isOpened()):
             ##   DRAWING    ##
           
             cv2.circle(frame,(cx,cy),5, (0,0,255), -1)
-            img = cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),2)
+            img = cv2.rectangle(frame,(x,y),(x+w,y+h),(0,0,255),2)
             #cv2.drawContours(frame, cnt, -1, (0,255,0), 3)
             #cv2.imshow('Image', cv2.resize(img, (400, 300)))
     for i in vehicles:
@@ -142,10 +140,10 @@ while(cap.isOpened()):
     frame = cv2.polylines(frame, [pts_L2], False, line_up_color, thickness=2)
     frame = cv2.polylines(frame, [pts_L3], False, (255,255,255), thickness=1)
     frame = cv2.polylines(frame, [pts_L4], False, (255,255,255), thickness=1)
-    cv2.putText(frame, str_up, (10,40),font,2,(255,255,255),2,cv2.LINE_AA)
-    cv2.putText(frame, str_up, (10,40),font,2,(0,0,255),1,cv2.LINE_AA)
-    cv2.putText(frame, str_down, (10,90),font,2,(255,255,255),2,cv2.LINE_AA)
-    cv2.putText(frame, str_down, (10,90),font,2,(255,0,0),1,cv2.LINE_AA)
+    cv2.putText(frame, str_up, (400,50),font,2,(255,255,255),2,cv2.LINE_AA)
+    cv2.putText(frame, str_up, (400,50),font,2,(0,0,255),2,cv2.LINE_AA)
+    cv2.putText(frame, str_down, (10,50),font,2,(255,255,255),2,cv2.LINE_AA)
+    cv2.putText(frame, str_down, (10,50),font,2,(255,0,0),2,cv2.LINE_AA)
     cv2.imshow('Frame', cv2.resize(frame, (1000, 500)))
     #cv2.imshow('Backgroud Subtraction', fgmask)
     #Abort and exit with 'Q' or ESC
